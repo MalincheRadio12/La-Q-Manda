@@ -41,57 +41,58 @@
             margin: auto; /* Ajusta según sea necesario */
             padding: 0;
         }
-       @font-face {
-        font-family: 'GROBOLD';
-        src: url('js/GROBOLD.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
+        @font-face { 
+    font-family: 'GROBOLD';
+    src: url('js/GROBOLD.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
+#reloj {
+    position: absolute;
+    top: 0; /* Alinea al top de la página */
+    left: 0; /* Alinea al borde izquierdo de la página */
+    background: rgba(0, 0, 0, 0.7); /* Fondo negro translúcido */
+    color: #f5f5f5; /* Color claro del texto */
+    font-family: 'GROBOLD', sans-serif; /* Fuente personalizada GROBOLD */
+    text-align: center;
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 10px 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+    z-index: 10;
+    max-width: 20%;
+}
+
+.reloj-fecha {
+    font-size: 1vw; /* Tamaño pequeño para la fecha */
+    font-weight: normal;
+    margin-bottom: 5px;
+    color: #ffffff; /* Color blanco puro para contraste */
+}
+
+.reloj-hora {
+    font-size: 1.5vw; /* Tamaño reducido para la hora */
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #ffcc00; /* Color dorado para la hora */
+}
+
+@media (max-width: 768px) {
     #reloj {
-        position: absolute;
-        top: 2vh;
-        left: 2vh;
-        background: rgba(0, 0, 0, 0.7); /* Fondo negro translúcido */
-        color: #f5f5f5; /* Color claro del texto */
-        font-family: 'GROBOLD', sans-serif; /* Fuente personalizada GROBOLD */
-        text-align: center;
-        border-radius: 15px; /* Bordes redondeados */
+        font-size: 2.5vw;
+        max-width: 70%;
         padding: 10px 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra elegante */
-        z-index: 10;
-        max-width: 20%;
     }
 
     .reloj-fecha {
-        font-size: 1vw; /* Tamaño pequeño para la fecha */
-        font-weight: normal;
-        margin-bottom: 5px;
-        color: #ffffff; /* Color blanco puro para contraste */
+        font-size: 3vw;
     }
 
     .reloj-hora {
-        font-size: 1.5vw; /* Tamaño reducido para la hora */
-        font-weight: bold;
-        letter-spacing: 0.1em;
-        color: #ffcc00; /* Color dorado para la hora */
+        font-size: 3vw;
     }
+}
 
-    @media (max-width: 768px) {
-        #reloj {
-            font-size: 2.5vw;
-            max-width: 70%;
-            padding: 10px 15px;
-        }
-
-        .reloj-fecha {
-            font-size: 1vw;
-        }
-
-        .reloj-hora {
-            font-size: 2vw;
-        }
-    }
 
         #comment-btn,
         #info-btn,
@@ -518,6 +519,7 @@ body {
         <h2>Anuncios 📣</h2>
         <div id="ad-images">
             <img src="js/publicidad2.jpeg" alt="h">
+
            
             <!-- Agrega más imágenes según sea necesario -->
         </div>
@@ -547,7 +549,7 @@ body {
         <h2>Contacto 📧 </h2>
         
         <div id="contact-container">
-            <a class="social-btn" href="mailto:laquemandafm1045@hotmail.com" target="_blank"><i class="fas fa-envelope"></i> Correo Electrónico:</a>
+            <a class="social-btn" href="mailto:laquemandafm1045@hotmail.com" target="_blank"><i class="fas fa-envelope"></i> Correo Electrónico</a>
             <a class="social-btn" href="https://wa.me/2462621697" target="_blank"><i class="fab fa-whatsapp"></i> Teléfono</a>
             <a class="social-btn" href="https://www.facebook.com/profile.php?id=100063534648363&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
             <a class="social-btn" href="https://www.facebook.com/share/1G3BVKTDyu/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook"></i>La Felina</a>
@@ -575,14 +577,24 @@ body {
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
 
-    
     <script>
         function actualizarReloj() {
             const reloj = document.getElementById('reloj');
             const ahora = new Date();
-            const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const fecha = ahora.toLocaleDateString('es-ES', opcionesFecha);
-            const hora = ahora.toLocaleTimeString('es-ES');
+    
+            // Obtener fecha en formato numérico (DD/MM/YYYY)
+            const dia = String(ahora.getDate()).padStart(2, '0'); // Día con dos dígitos
+            const mes = String(ahora.getMonth() + 1).padStart(2, '0'); // Mes con dos dígitos (getMonth() empieza en 0)
+            const año = ahora.getFullYear();
+    
+            // Obtener hora en formato numérico (HH:MM:SS)
+            const horas = String(ahora.getHours()).padStart(2, '0');
+            const minutos = String(ahora.getMinutes()).padStart(2, '0');
+            const segundos = String(ahora.getSeconds()).padStart(2, '0');
+    
+            const fecha = `${dia}/${mes}/${año}`;
+            const hora = `${horas}:${minutos}:${segundos}`;
+    
             reloj.innerHTML = `
                 <div class="reloj-fecha">${fecha}</div>
                 <div class="reloj-hora">${hora}</div>
@@ -594,6 +606,7 @@ body {
         // Inicializa el reloj al cargar la página
         actualizarReloj();
     </script>
+    
 
     <script>
         // Verificar si el navegador soporta notificaciones
@@ -740,13 +753,6 @@ body {
 </body>
 
 </html>
-
-
-
-
-
-
-
 
 
 
