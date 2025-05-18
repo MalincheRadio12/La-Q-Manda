@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-    
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Radio">
     <link rel="apple-touch-icon" href="js/8.png">
-    <meta name="msapplication-TileImage" content="js/8.png">
+    <meta name="msapplication-TileImage" content="js/audifonos.png">
     <meta name="msapplication-TileColor" content="#000000">
     <link rel="manifest" href="./manifest.json">
-    <script src="tuscript.js" defer></script>
-
-    
-    <title>La Q Manda.!! 📻 </title>
-    <link rel="shortcut icon" href="js/8.png" />
+    <title>La Q Manda.!! 📻</title>
+    <link rel="shortcut icon" href="js/audifonos.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         body {
@@ -30,117 +25,115 @@
             position: relative;
             overflow-x: hidden; 
             overflow-y: hidden;
-            box-sizing: border-box;
             background-attachment: fixed;
-   
         }
- html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-#lunaradio {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    padding: 0;
-}
+        #lunaradio {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            padding: 0;
+        }
+        
         @font-face { 
-    font-family: 'GROBOLD';
-    src: url('js/GROBOLD.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+            font-family: 'GROBOLD';
+            src: url('js/GROBOLD.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-#reloj {
-    position: absolute;
-    top: 0; /* Alinea al top de la página */
-    left: 0; /* Alinea al borde izquierdo de la página */
-    background: rgba(0, 0, 0, 0.7); /* Fondo negro translúcido */
-    color: #f5f5f5; /* Color claro del texto */
-    font-family: 'GROBOLD', sans-serif; /* Fuente personalizada GROBOLD */
-    text-align: center;
-    border-radius: 15px; /* Bordes redondeados */
-    padding: 10px 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra elegante */
-    z-index: 10;
-    max-width: 20%;
-}
+        #reloj {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #f5f5f5;
+            font-family: 'GROBOLD', sans-serif;
+            text-align: center;
+            border-radius: 15px;
+            padding: 10px 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            max-width: 20%;
+        }
 
-.reloj-fecha {
-    font-size: 1vw; /* Tamaño pequeño para la fecha */
-    font-weight: normal;
-    margin-bottom: 5px;
-    color: #ffffff; /* Color blanco puro para contraste */
-}
+        .reloj-fecha {
+            font-size: 1vw;
+            font-weight: normal;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
 
-.reloj-hora {
-    font-size: 1.5vw; /* Tamaño reducido para la hora */
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    color: #ffcc00; /* Color dorado para la hora */
-}
+        .reloj-hora {
+            font-size: 1.5vw;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            color: #ffcc00;
+        }
 
-@media (max-width: 768px) {
-    #reloj {
-        font-size: 2.5vw;
-        max-width: 70%;
-        padding: 10px 15px;
-    }
+        @media (max-width: 768px) {
+            #reloj {
+                font-size: 2.5vw;
+                max-width: 70%;
+                padding: 10px 15px;
+            }
 
-    .reloj-fecha {
-        font-size: 3vw;
-    }
+            .reloj-fecha {
+                font-size: 3vw;
+            }
 
-    .reloj-hora {
-        font-size: 3vw;
-    }
-}
+            .reloj-hora {
+                font-size: 3vw;
+            }
+        }
         
         .emoji-button {
-    font-size: 20px;
-    width: 40px;
-    height: 30px;
-    border: none;
-    border-radius: 20%;
-    background-color: #f3f3f3;
-    cursor: pointer;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-    margin-left: 5px;
-}
+            font-size: 20px;
+            width: 40px;
+            height: 30px;
+            border: none;
+            border-radius: 20%;
+            background-color: #f3f3f3;
+            cursor: pointer;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            margin-left: 5px;
+        }
 
-.emoji-button:hover {
-    background-color: #e0e0e0;
-}
+        .emoji-button:hover {
+            background-color: #e0e0e0;
+        }
 
-.emoji-picker {
-    position: absolute;
-    bottom: 60px; /* Ajusta según la posición de tu chat */
-    left: 0px; /* Ajusta según la posición de tu input */
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    display: none; /* Oculto inicialmente */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-}
+        .emoji-picker {
+            position: absolute;
+            bottom: 60px;
+            left: 0px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            display: none;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
 
-.emoji-picker span {
-    font-size: 20px;
-    cursor: pointer;
-    margin: 5px;
-    display: inline-block;
-    transition: transform 0.2s;
-}
+        .emoji-picker span {
+            font-size: 20px;
+            cursor: pointer;
+            margin: 5px;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
 
-.emoji-picker span:hover {
-    transform: scale(1.2);
-}
-
-
+        .emoji-picker span:hover {
+            transform: scale(1.2);
+        }
 
         #comment-btn,
         #info-btn,
@@ -152,21 +145,19 @@
             font-size: 2vh;
             padding: 2vh;
             border-radius: 50%;
-            background-color: #ffff00 ;
+            background-color: #ffff00;
         }
 
         @media (max-width: 100vh) {
-            
-         body { 
-            font-size: 1vw;
-        }
+            body { 
+                font-size: 1vw;
+            }
 
             #comment-btn,
             #info-btn,
             #contact-btn {
                 font-size:3vw;
                 padding: 1vw;
-                
             }
         }
 
@@ -184,11 +175,11 @@
             left: 22vw;
             margin-right: 1px;
         }
-        #comment-modal h2,
         
+        #comment-modal h2,
         #info-modal h2,
         #contact-modal h2 {
-            font-size: max(1.5vw, 20px); /* Establece el tamaño mínimo que deseas para los títulos */
+            font-size: max(1.5vw, 20px);
         }
 
         #comment-modal,
@@ -204,24 +195,24 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             z-index: 3;
             transition: opacity 0.5s ease-in-out;
-            max-width: 350px; /* Ajusta el valor según tus necesidades */
-            width: 90vw; /* Esto permite que la ventana sea del 90% del ancho de la ventana del navegador */
+            max-width: 350px;
+            width: 90vw;
         }
+        
         #info-container {
-            max-height: 400px; /* Ajusta el valor según tus necesidades */
+            max-height: 400px;
             overflow-y: auto;
-            scrollbar-width: thin; /* para navegadores Firefox */
-            scrollbar-color:  #ffff00, #ffffff; /* para navegadores Firefox */
+            scrollbar-width: thin;
+            scrollbar-color: #ffff00, #ffffff;
             font-size: 18px;
         }
 
-        /* Estilos adicionales para navegadores WebKit (Chrome, Safari) */
         #info-container::-webkit-scrollbar {
             width: 10px;
         }
 
         #info-container::-webkit-scrollbar-thumb {
-            background-color:  #ffff00;
+            background-color: #ffff00;
         }
 
         #info-container::-webkit-scrollbar-track {
@@ -234,7 +225,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: linear-gradient(to right,  #ffff00, #ffffff);
+            background: linear-gradient(to right, #ffff00, #ffffff);
             padding: 10px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -243,9 +234,10 @@
             width: 50vw;
             max-width: 300px;
         }
+        
         #contact-container {
-            text-align: center; /* Centra el contenido */
-            max-height: 100vh; /* Ajusta el valor según tus necesidades */
+            text-align: center;
+            max-height: 100vh;
             overflow-y: auto;
         }
 
@@ -309,266 +301,190 @@
         }
 
         #ad-images-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 50%; /* Ajusta según tus necesidades */
-    }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+        }
 
-    #ad-images {
-        text-align: center;
-    }
+        #ad-images {
+            text-align: center;
+        }
 
-    #ad-images img {
-        display: none; /* Inicia oculto */
-        max-width: 100%; /* Ajusta según tus necesidades */
-        max-height: 100vh; /* Ajusta según tus necesidades */
-    }
+        #ad-images img {
+            display: none;
+            max-width: 100%;
+            max-height: 100vh;
+        }
 
-    #ad-images img:first-child {
-        display: block; /* Muestra la primera imagen */
-    }
-    
+        #ad-images img:first-child {
+            display: block;
+        }
+        
+        #imagen-esquina {
+            position: fixed;
+            top: 1px;
+            right: 1px;
+            z-index: 999;
+        }
 
-    #imagen-esquina {
-    position: fixed;
-    top: 1px; /* Ajusta según tu preferencia */
-    right: 1px; /* Ajusta según tu preferencia */
-    z-index: 999; /* Asegura que esté encima de otros elementos */
-}
+        #imagen-esquina img {
+            width: 70px;
+            height: auto;
+        }
+        
+        #contact-modal {
+            font-size: 16px;
+        }
 
-#imagen-esquina img {
-    width: 70px; /* Ajusta según tu preferencia */
-    height: auto; /* Mantiene la proporción */
-    /* border-radius: 50%;  Elimina esta línea para que la imagen no sea redonda */
-}
-#contact-modal {
-    /* ... otros estilos ... */
-    font-size: 16px; /* Establece el tamaño de fuente predeterminado */
-}
+        #contact-modal p {
+            min-width: 50px;
+            font-size: max(16px, 2vw);
+        }
 
-#contact-modal p {
-    min-width: 50px; /* Establece un ancho mínimo para los párrafos */
-    font-size: max(16px, 2vw); /* Establece el tamaño de fuente mínimo entre 18px y 2vw */
-}
+        #offline-message h1 {
+            font-size: 7vw;
+        }
 
-#offline-message h1 {
-    font-size: 7vw; /* Cambia el tamaño del texto según tus preferencias */
-}
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
 
-#video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
-}
+        #chat-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 3;
+            transition: opacity 0.5s ease-in-out;
+            max-width: 350px;
+            width: 90vw;
+        }
 
+        #chat-modal.show {
+            display: block;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-}
+        #chat-container {
+            text-align: center;
+            font-size: 18px;
+        }
 
+        #chat-messages {
+            max-height: 30vh;
+            overflow-y: auto;
+            margin-bottom: 2vh;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-#chat-modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    z-index: 3;
-    transition: opacity 0.5s ease-in-out;
-    max-width: 350px;
-    width: 90vw;
-}
+        #chat-input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-#chat-modal.show {
-    display: block;
-}
+        #chat-input {
+            width: 70%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-#chat-container {
-    text-align: center;
-    font-size: 18px;
-}
+        #send-chat-btn {
+            width: 25%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-#chat-messages {
-    max-height: 30vh;
-    overflow-y: auto;
-    margin-bottom: 2vh;
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        #send-chat-btn:hover {
+            background-color: #ff0000;
+        }
 
-#chat-input-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        #chat-btn {
+            position: fixed;
+            bottom: 2vh;
+            right: 2vw;
+            background-color: #ff0000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2vh;
+            padding: 2vh;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: pulse 1s infinite;
+            transition: background-color 0.3s;
+        }
 
-#chat-input {
-    width: 70%;
-    padding: 8px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        @media (max-width: 768px) {
+            #chat-btn {
+                font-size: 3vw;
+                padding: 3vw;
+            }
+        }
 
-#send-chat-btn {
-    width: 25%;
-    padding: 8px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    font-size: 14px;
-    background-color:  #ff0000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
 
-#send-chat-btn:hover {
-    background-color:  #ff0000;
-}
-
-.modal-close-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #333;
-}
-
-/* Ajustes generales para el botón de chat en vivo */
-#chat-btn {
-    position: fixed;
-    bottom: 2vh; /* Más cerca del borde inferior */
-    right: 2vw;  /* Más cerca del borde derecho */
-    background-color: #ff0000;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2vh; /* Tamaño de fuente similar a los otros botones */
-    padding: 2vh;   /* Relleno similar a los otros botones */
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: pulse 1s infinite; /* Animación aplicada de forma continua */
-    transition: background-color 0.3s;
-}
-
-/* Ajustes específicos para dispositivos móviles */
-@media (max-width: 768px) {
-    #chat-btn {
-        font-size: 3vw; /* Tamaño de fuente ajustado para móviles */
-        padding: 3vw;   /* Relleno ajustado para móviles */
-    }
-}
-
-/* Animación de pulsación */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Efecto de hover (opcional) para cambiar el color del fondo */
-#chat-btn:hover {
-    background-color: #0056b3;
-}
-
-
-
+        #chat-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
+    <script src="tuscript.js" defer></script>
 </head>
 
 <body>
-     <div id="offline-message" style="display: none; background-color: rgba(0, 0, 0, 0.8); color: white; position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 999;">
-    <h1>Sin conexión a Internet</h1>
-     <img src="js/no-wifi.png" alt="Imagen de conexión perdida" style="width: 100px; height: auto;">
-    <!-- Puedes personalizar este mensaje como desees -->
-</div>
-
-
-
+    <div id="offline-message" style="display: none; background-color: rgba(0, 0, 0, 0.8); color: white; position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 999;">
+        <h1>Sin conexión a Internet</h1>
+        <img src="js/no-wifi.png" alt="Imagen de conexión perdida" style="width: 100px; height: auto;">
+    </div>
 
     <video autoplay muted loop id="video-background" preload="auto">
         <source src="js/Fondo6.mp4" type="video/mp4">
-        <!-- Agrega formatos adicionales del video aquí si es necesario -->
         Tu navegador no soporta el elemento de video.
-      </video>
-      
-      <div id="reloj"></div>
-
-    <div id="lunaradio">
-        
-        </div>
-    </div>
-
-    <!-- Agrega esto al final del body de tu HTML -->
-<div id="notification" style="display: none;">
-    <p>¡Estás escuchando LA Q MANDA!</p>
-</div>
+    </video>
     
+    <div id="reloj"></div>
 
+    <div id="lunaradio"></div>
+
+    <div id="notification" style="display: none;">
+        <p>¡Estás escuchando LA Q MANDA!</p>
+    </div>
+    
+    <!-- Botones flotantes -->
     <div id="chat-btn">
         <i class="fas fa-comments"></i>
     </div>
-
-    <div id="chat-modal">
-        <div class="modal-close-btn" onclick="closeChatModal()">&times;</div>
-        <div id="chat-container">
-            <h2>Chat en Vivo 💬</h2>
-            <div id="chat-messages"></div>
-            
-            <div id="chat-input-container">
-                <div class="emoji-picker" id="emojiPicker">
-                    <span>😀</span>
-                    <span>😂</span>
-                    <span>😍</span>
-                    <span>😎</span>
-                    <span>😭</span>
-                    <span>👍</span>
-                    <span>🔥</span>
-                    <span>❤️</span>
-                    <span>🎉</span>
-                    <span>😜</span>
-                    <span>💀</span>
-                    <span>🌹</span>
-                    <span>🍒</span>
-                    <span>🍕</span>
-                    <span>⚽</span>
-                    <span>⚾</span>
-                    <span>🌎</span>
-                    <span>🌑</span>
-                    <span>🚌</span>
-                    <span>👓</span>   
-                </div>
-                <input type="text" id="chat-input" placeholder="Escribe tu mensaje...">
-                <button class="emoji-button" id="emojiButton">😊</button>
-                <button id="send-chat-btn" onclick="sendMessage()">Enviar</button>
-            </div>
-        </div>
-        
-    </div>
-
 
     <div id="comment-btn">
         <i class="fas fa-bullhorn"></i>
@@ -581,23 +497,38 @@ body {
     <div id="contact-btn">
         <i class="fas fa-envelope"></i>
     </div>
+    
     <div id="imagen-esquina">
         <img src="js/uttlogo.png" alt="Imagen Esquina">
     </div>
 
+    <!-- Modales -->
+    <div id="chat-modal">
+        <div class="modal-close-btn" onclick="closeChatModal()">&times;</div>
+        <div id="chat-container">
+            <h2>Chat en Vivo 💬</h2>
+            <div id="chat-messages"></div>
+            
+            <div id="chat-input-container">
+                <div class="emoji-picker" id="emojiPicker">
+                    <span>😀</span><span>😂</span><span>😍</span><span>😎</span><span>😭</span>
+                    <span>👍</span><span>🔥</span><span>❤️</span><span>🎉</span><span>😜</span>
+                    <span>💀</span><span>🌹</span><span>🍒</span><span>🍕</span><span>⚽</span>
+                    <span>⚾</span><span>🌎</span><span>🌑</span><span>🚌</span><span>👓</span>   
+                </div>
+                <input type="text" id="chat-input" placeholder="Escribe tu mensaje...">
+                <button class="emoji-button" id="emojiButton">😊</button>
+                <button id="send-chat-btn" onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
     <div id="comment-modal">
-          <span class="modal-close-btn" onclick="closeComments()">&times;</span>
+        <span class="modal-close-btn" onclick="closeComments()">&times;</span>
         <h2>Anuncios 📣</h2>
-        <video width="80%" height="auto" controls>
-            <source src="js/1.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-        </video>
         <div id="ad-images">
             <img src="js/publicidad1.png" alt="h" width="400" height="340" style="border-radius: 20px;">
-            <!-- Agrega más imágenes según sea necesario -->
         </div>
-
-
         <div id="comments-container"></div>
     </div>
 
@@ -606,26 +537,25 @@ body {
         <h2>Información ℹ️</h2>
         <div id="info-container">
             <a>¡Bienvenido a LA Q MANDA 1045 RADIO!</a>
-            <hr> </hr>
-            <p>Con más de 10 años de experiencia, Radio y Publicidad de Chiqutempan se ha consolidado como una propuesta radiofónica importante en la zona centro del estado de Tlaxcala. </p>
-            <p> Nuestra Organización está conformada por un equipo de profesionales y emprendedores dispuestos a brindar un servicio diferente a nuestros radioescuchas y clientes.</p>
+            <hr></hr>
+            <p>Con más de 10 años de experiencia, Radio y Publicidad de Chiqutempan se ha consolidado como una propuesta radiofónica importante en la zona centro del estado de Tlaxcala.</p>
+            <p>Nuestra Organización está conformada por un equipo de profesionales y emprendedores dispuestos a brindar un servicio diferente a nuestros radioescuchas y clientes.</p>
             <img src="js/Untitled.png" alt="" style="width: 100%; max-width: 80px; display: block; margin: 0 auto;">
-            <hr> </hr>
+            <hr></hr>
             <h2>Radio y Publicidad de Chiautempan - La Q Manda 10-45,</h2>
             <p>Se distingue por el uso de infraestructura tecnológica suficiente para alcanzar la más alta calidad en la transmisión de nuestras señales en nuestras diferentes plataformas a Digitales.</p>
             <img src="js/Untitled (1).png" alt="" style="width: 100%; max-width: 80px; display: block; margin: 0 auto;">
-            <hr> </hr>
-            <p> ® Zorb by Juan Carlos Palestina Huerta </p>
-           <img src="js/uttlogo2.png" alt="" style="width: 20%; max-width: 60px; display: block; margin: 0 auto;">
-           <hr> </hr>
-           <a class="social-btn" href="https://api.whatsapp.com/send/?phone=2411179924&text&type=phone_number&app_absent=0" target="_blank"><i class="fab fa-whatsapp" ></i> Whatsapp</a>
+            <hr></hr>
+            <p>®Zorb FM - Productora de Medios Digitales</p>
+            <img src="js/uttlogo2.png" alt="" style="width: 20%; max-width: 60px; display: block; margin: 0 auto;">
+            <hr></hr>
+            <a class="social-btn" href="https://api.whatsapp.com/send/?phone=2411179924&text&type=phone_number&app_absent=0" target="_blank"><i class="fab fa-whatsapp"></i> Whatsapp</a>
         </div>
     </div>
 
     <div id="contact-modal">
         <span class="modal-close-btn" onclick="closeContact()">&times;</span>
-        <h2>Contacto 📧 </h2>
-        
+        <h2>Contacto 📧</h2>
         <div id="contact-container">
             <a class="social-btn" href="mailto:laquemandafm1045@hotmail.com" target="_blank"><i class="fas fa-envelope"></i> Correo Electrónico</a>
             <a class="social-btn" href="https://wa.me/2462621697" target="_blank"><i class="fab fa-whatsapp"></i> Teléfono</a>
@@ -633,7 +563,7 @@ body {
             <a class="social-btn" href="https://www.facebook.com/share/1G3BVKTDyu/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook"></i>La Felina</a>
             <a class="social-btn" href="https://www.facebook.com/pikackudelaQmanda?mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook"></i>Pika chu</a>
         </div>
-        <P>Ubicación 📍 </P>
+        <p>Ubicación 📍</p>
         <p>Centro, Santa Ana Chiautempan, Tlax.</p>
         <div id="map-container">
             <iframe 
@@ -646,10 +576,10 @@ body {
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
-        
     </div>
 
-    <script src="./script.js"> </script>
+    <!-- Scripts -->
+    <script src="./script.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/lunaradio-sincors.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
@@ -660,12 +590,10 @@ body {
             const reloj = document.getElementById('reloj');
             const ahora = new Date();
     
-            // Obtener fecha en formato numérico (DD/MM/YYYY)
-            const dia = String(ahora.getDate()).padStart(2, '0'); // Día con dos dígitos
-            const mes = String(ahora.getMonth() + 1).padStart(2, '0'); // Mes con dos dígitos (getMonth() empieza en 0)
+            const dia = String(ahora.getDate()).padStart(2, '0');
+            const mes = String(ahora.getMonth() + 1).padStart(2, '0');
             const año = ahora.getFullYear();
     
-            // Obtener hora en formato numérico (HH:MM:SS)
             const horas = String(ahora.getHours()).padStart(2, '0');
             const minutos = String(ahora.getMinutes()).padStart(2, '0');
             const segundos = String(ahora.getSeconds()).padStart(2, '0');
@@ -679,40 +607,31 @@ body {
             `;
         }
     
-        // Actualiza el reloj cada segundo
         setInterval(actualizarReloj, 1000);
-        // Inicializa el reloj al cargar la página
         actualizarReloj();
     </script>
     
-
     <script>
         // Verificar si el navegador soporta notificaciones
         if ('Notification' in window) {
-            // Solicitar permiso para mostrar notificaciones
             Notification.requestPermission().then(function(permission) {
-                // Si se concede el permiso, configurar notificaciones periódicas
                 if (permission === 'granted') {
                     function showNotification() {
                         const notificationOptions = {
                             body: '¡Estás escuchando La Q Manda',
-                            icon: 'js/7.png', // Asegúrate de tener un ícono en tu servidor
-                            badge: 'js/7.png', // Asegúrate de tener una insignia en tu servidor
+                            icon: 'js/audifonos.png',
+                            badge: 'js/audifonos.png',
                         };
                         new Notification(' La Q Manda', notificationOptions);
                     }
                     
-                    // Mostrar una notificación inmediatamente
                     showNotification();
-
-                    // Configurar la notificación para que aparezca cada 10 minutos (600,000 ms)
                     setInterval(showNotification, 600000);
                 }
             });
         }
-    </script>
-    <script>
-        // Agrega este script para el cambio de imágenes
+
+        // Cambio de imágenes en anuncios
         var currentIndex = 0;
         var images = document.querySelectorAll('#ad-images img');
         var totalImages = images.length;
@@ -727,37 +646,31 @@ body {
             showImage(currentIndex);
         }
     
-        // Cambia el tiempo (en milisegundos) según tus necesidades
         setInterval(nextImage, 5000);
-    </script>
-     
 
-<script>
-    function checkOnlineStatus() {
-        var offlineMessage = document.getElementById("offline-message");
-        if (!navigator.onLine) {
-            offlineMessage.style.display = "flex";
-        } else {
-            offlineMessage.style.display = "none";
+        // Verificar estado de conexión
+        function checkOnlineStatus() {
+            var offlineMessage = document.getElementById("offline-message");
+            if (!navigator.onLine) {
+                offlineMessage.style.display = "flex";
+            } else {
+                offlineMessage.style.display = "none";
+            }
         }
-    }
 
-    window.addEventListener("load", function() {
-        checkOnlineStatus();
-
-        window.addEventListener("online", function() {
+        window.addEventListener("load", function() {
             checkOnlineStatus();
+
+            window.addEventListener("online", function() {
+                checkOnlineStatus();
+            });
+
+            window.addEventListener("offline", function() {
+                checkOnlineStatus();
+            });
         });
 
-        window.addEventListener("offline", function() {
-            checkOnlineStatus();
-        });
-    });
-</script>
-
-
-
-    <script>
+        // Configuración del reproductor de radio
         $("#lunaradio").lunaradio({ 
             userinterface: "big",
             backgroundcolor: "",
@@ -768,7 +681,7 @@ body {
             fontratio: "0.4",
             radioname: " Cámbiale YA! ",
             scroll: "true",
-            coverimage: "js/logo1.png",
+            coverimage: "js/logo3.png",
             onlycoverimage: "False",
             coverstyle: "animated",
             usevisualizer: "real",
@@ -792,6 +705,7 @@ body {
             autoplay: "true"
         });
 
+        // Eventos de los botones
         $("#comment-btn").click(function () {
             $("#comment-modal").addClass("show");
             loadComments();
@@ -808,8 +722,6 @@ body {
         $(".modal-close-btn").click(function () {
             $(".modal").removeClass("show");
         });
-
-        
 
         function closeComments() {
             $("#comment-modal").removeClass("show");
@@ -829,8 +741,8 @@ body {
         }
     </script>
 </body>
-
 </html>
+
 
 
 
